@@ -5,6 +5,7 @@
     <meta name="author" content="Arthur">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <script src="dbfake.js"></script>
 </head>
 
 <body>
@@ -20,18 +21,14 @@
             <li><a class="active" href="#home">Ciência</a></li>
         </ul>
     </div>
-    <div class="conteudo">
-        <h1 class="titulu">Lorem ipsum dolor sit amet consectetur adipisicing elit. tempore officia vero nostrum in</h1>
-        <p class="titulo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui nobis tempore, voluptatem vitae
-            dolores beatae laborum. Voluptas, dolorem quo. Laudantium at quam facere consequuntur quo reiciendis a
-            dolores sit ab.</p>
-        <p class="autor">Fulano de tal<br>03/04/2019</p>
-        <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio dolor quidem odit, porro optio
-            facilis quis fugit obcaecati a, cum voluptates esse explicabo sit harum ea! Enim cum aliquam facilis! Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Optio ipsum error exercitationem velit debitis, incidunt
-            soluta minus impedit sit numquam architecto quos excepturi, dignissimos delectus! Maxime quas cumque placeat
-            a.</p>
+    <div class="conteudo" id="conteudo">
     </div>
+
+    <script>
+            var prods = '';
+            prods = `<h1 class="titulo">${db.normalnoticias[2].titulo}</h1> <p class="titulo">${db.normalnoticias[2].descricao}</p> <p class="autor">${db.normalnoticias[2].autor}<br>${db.normalnoticias[2].data}</p> <p class="texto">${db.normalnoticias[2].texto}</p>`
+            document.getElementById('conteudo').innerHTML = prods;
+    </script>
 </body>
 
 </html>

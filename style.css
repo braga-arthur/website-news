@@ -54,11 +54,6 @@ ul {
     top: 40%;
   }
 
-  .column {
-    float: left;
-    padding: 5px;
-  }
-
   h1
   {
     width: 50%;
@@ -121,14 +116,16 @@ ul {
     text-decoration: none;
     text-align: center;
     display: inherit;
-    margin-left: 20px;
+    margin-left: 15%;
+    float: left;
+    padding: 5px;
   }
 
   div.normalnoticia {
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    margin-left: 200px;
+    margin-left: 25%;
   }
   
   li {

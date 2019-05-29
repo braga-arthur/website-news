@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="author" content="Arthur">
     <link rel="stylesheet" href="style.css">
+    <script src="dbfake.js"></script>
 </head>
 
 <body>
@@ -23,26 +24,23 @@
     <h1 class="primeiro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quas, esse accusantium voluptatem natus explicabo
         dolore cum tenetur ab eaque beatae laudantium en officia </h1>
     <p class="minitexto">Lorem ipsum dolor sit amet c</p>
-    <div class="bignoticia">
-        <div class="column">
-            <img src="bignoticia1.jpg">
-            <h4>Lorem ipsum dolor sit amet c</h4>
-        </div>
-        <div class="column">
-            <img src="bignoticia2.jpg">
-            <h4>Lorem ipsum dolor sit amet c</h4>
-        </div>
+    <div class="bignoticia column" id="bignoticia">
     </div>
-
-
-    <div class="normalnoticia">
-        <img src="normalnoticia1.png">
-        <h4>Lorem ipsum dolor sit amet c</h4>
-        <img src="normalnoticia2.png">
-        <h4>Lorem ipsum dolor sit amet c</h4>
-        <img src="normalnoticia3.png">
-        <h4>Lorem ipsum dolor sit amet c</h4>
+    <div class="normalnoticia" id="normalnoticia">
     </div>
+    <script>
+            var prods = '';
+            for (i=0; i < db.bignoticias.length; i++){
+                prods += `<img src="${db.bignoticias[i].foto}"> <h4>${db.bignoticias[i].titulo}</h4>`;
+            }
+            document.getElementById('bignoticia').innerHTML = prods;
+
+            var prods2 = '';
+            for (i=0; i < db.normalnoticias.length; i++){
+                prods2 += `<img src="${db.normalnoticias[i].foto}"> <h4>${db.normalnoticias[i].titulo}</h4>`;
+            }
+            document.getElementById('normalnoticia').innerHTML = prods2;
+    </script>
 </body>
 
 </html>
