@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Arthur">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="header">
+        <img src="logo.png" class="logo">
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a class="active" href="esporte.html">Lista Esporte</a></li>
+            <li><a class="active" href="pagina-noticia.html">Pagina de notica</a></li>
+            <li><a class="active" href="#home">Cultura</a></li>
+            <li><a class="active" href="#home">Moda</a></li>
+            <li><a class="active" href="#home">Culinária</a></li>
+            <li><a class="active" href="#home">Política</a></li>
+            <li><a class="active" href="#home">Tecnologia</a></li>
+            <li><a class="active" href="#home">Ciência</a></li>
+        </ul>
+    </div>
+    <main>
+        <button onclick="getData()">Disparar</button>
+    <h1>Lista de Esportes</h1>
+    <div id ="lista-esportes">
+        <div class="box-esporte">
+            <img src ="http://lorempixel.com/300/200/sport" alt="">
+            <p>Cristiano Ronaldo</p>
+            <p>Conteudo</p>
+            <p>Belo Horizonte - MG</p>
+        </div>
+        </div>
+    </main>
+            <script>
+                var req = new XMLHttpRequest ();
+                var url = 'https://randomuser.me/api/?results=10';
+
+                function processaDados(){
+                    var dados = JSON.parse(req.responseText);
+                    var saida = '';
+                    for (i = 0; i < dados.results.length; i++)
+                    {
+                        saida += `<div class="box-esporte">
+                        <img src ="${dados.results[i].picture.medium}" alt="">
+                        <p>${dados.results[i].name.first} ${dados.results[i].name.last}</p>
+                        <p>${dados.results[i].phone}</p>
+                        <p>${dados.results[i].location.city} - ${dados.results[i].location.state}</p> </div></div>`;
+                    }
+                    document.getElementById('lista-esportes').innerHTML = saida;
+                }
+
+                function getData(){
+                    req.onload = processaDados;
+                    req.open('GET', url, true);
+                    req.send();
+                }
+            </script>
+</body>
+
+</html>

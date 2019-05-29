@@ -143,3 +143,9 @@ ul {
   li a:hover {
     background-color: #111;
   }
+
+  .box-esporte
+  {
+    width: 300px;
+    float: left;
+  }
