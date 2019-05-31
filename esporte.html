@@ -14,6 +14,7 @@
             <li><a class="active" href="index.html">Home</a></li>
             <li><a class="active" href="esporte.html">Lista Esporte</a></li>
             <li><a class="active" href="pagina-noticia.html">Pagina de notica</a></li>
+            <li><a class="active" href="pagina-noticia2.html">Pagina de notica2</a></li>
             <li><a class="active" href="#home">Cultura</a></li>
             <li><a class="active" href="#home">Moda</a></li>
             <li><a class="active" href="#home">Culinária</a></li>
@@ -27,27 +28,22 @@
     <h1>Lista de Esportes</h1>
     <div id ="lista-esportes">
         <div class="box-esporte">
-            <img src ="http://lorempixel.com/300/200/sport" alt="">
-            <p>Cristiano Ronaldo</p>
-            <p>Conteudo</p>
-            <p>Belo Horizonte - MG</p>
         </div>
         </div>
     </main>
             <script>
                 var req = new XMLHttpRequest ();
-                var url = 'https://randomuser.me/api/?results=10';
+                var url = 'https://newsapi.org/v2/top-headlines?country=br&category=sports&apiKey=1e03cfcb62a54ddd800a789437f19373';
 
                 function processaDados(){
                     var dados = JSON.parse(req.responseText);
                     var saida = '';
-                    for (i = 0; i < dados.results.length; i++)
+                    for (i = 0; i < dados.articles.length; i++)
                     {
                         saida += `<div class="box-esporte">
-                        <img src ="${dados.results[i].picture.medium}" alt="">
-                        <p>${dados.results[i].name.first} ${dados.results[i].name.last}</p>
-                        <p>${dados.results[i].phone}</p>
-                        <p>${dados.results[i].location.city} - ${dados.results[i].location.state}</p> </div></div>`;
+                        <img src ="${dados.articles[i].urlToImage}" alt="">
+                        <p>${dados.articles[i].title}</p>
+                        <p>${dados.articles[i].author}</p>`;
                     }
                     document.getElementById('lista-esportes').innerHTML = saida;
                 }
